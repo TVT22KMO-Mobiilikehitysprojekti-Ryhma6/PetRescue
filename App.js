@@ -1,12 +1,28 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import HomeScreen from './HomeScreen';
+import SearchPetScreen from './SearchPetScreen';
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Tästä alkaa PetRecue sovellus!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options= {{
+            title: 'Home',
+            headerTitle: 'Home',
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
