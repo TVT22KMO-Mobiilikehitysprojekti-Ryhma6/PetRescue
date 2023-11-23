@@ -12,16 +12,15 @@ export default function HomeScreen({navigation}) {
                 backgroundColor: 'f0f0f0'
             },
             headerRight: () => (
-
                 <AntDesign
-                style={styles.navButton}
-                name='arrowright'
-                size={24}
-                onPress={() => navigation.navigate('Search', {message: message})}
+                  style={[styles.navButton, { backgroundColor: '#AFEEEE', borderRadius: 15 }]}
+                  name="arrowright"
+                  size={24}
+                  onPress={() => navigation.navigate('Search', { message: message })}
                 />
-            )
-        })
-    }, [message])
+              ),
+            });
+          }, [message]);
 
     return (
         <View style={styles.container}>
@@ -34,6 +33,7 @@ export default function HomeScreen({navigation}) {
 const styles = StyleSheet.create({
     container: {
         padding: 10,
+       
     },
     navButton: {
         marginRight: 5,
