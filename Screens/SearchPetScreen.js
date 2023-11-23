@@ -1,34 +1,41 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import { petDATA } from '../DATA';
-const SearchPetScreen = ({ navigation }) => {
-    const handleAdopt = (petId) => {
-    
-      const selectedPet = petDATA.find((pet) => pet.id === petId);
-      console.log(`Adopting ${selectedPet.dogName}, ${selectedPet.dogAge} years old`);
-    };
-  
-    return (
-      <View style={styles.container}>
-        {petDATA.map((pet) => (
-          <TouchableOpacity
-            key={pet.id}
-            style={styles.petCard}
-            onPress={() => handleAdopt(pet.id)}
-          >
-            <Image source={pet.dogImage} style={styles.petImage} />
-            <Text style={styles.petName}>{pet.dogName}</Text>
-            <Text style={styles.petAge}>{pet.dogAge} years old</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
-    );
+const SearchPetScreen = () => {
+  const navigation = useNavigation();
+
+  const navigateToPetInfo = (petId) => {
+    navigation.navigate('PetInfoScreen', { petId });
   };
+  const renderPetItem = ({ item }) => (
+    <TouchableOpacity
+      key={item.id}
+      style={styles.petCard}
+      onPress={() => navigateToPetInfo(item.id)}
+    >
+      <Image source={item.dogImage} style={styles.petImage} />
+      <Text style={styles.petName}>{item.dogName}</Text>
+      <Text style={styles.petAge}>{item.dogAge} years old</Text>
+    </TouchableOpacity>
+  );
+    return (
+     
+        <FlatList
+          data={petDATA}
+          renderItem={renderPetItem}
+          keyExtractor={(item) => item.id.toString()}
+          numColumns={2} // Aseta haluttu sarakkeiden määrä
+          contentContainerStyle={styles.container}
+        />
+      );
+    };
+    
   
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      flexGrow: 1,
       alignItems: 'center',
       justifyContent: 'center',
     },
