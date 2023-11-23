@@ -1,6 +1,9 @@
-import React from 'react';
+
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import React, { useEffect,   useLayoutEffect } from 'react';
+
 
 import { petDATA } from '../DATA';
 const SearchPetScreen = () => {
@@ -20,13 +23,16 @@ const SearchPetScreen = () => {
       <Text style={styles.petAge}>{item.dogAge} years old</Text>
     </TouchableOpacity>
   );
+ 
+
+
     return (
      
         <FlatList
           data={petDATA}
           renderItem={renderPetItem}
           keyExtractor={(item) => item.id.toString()}
-          numColumns={2} // Aseta haluttu sarakkeiden määrä
+          numColumns={2}
           contentContainerStyle={styles.container}
         />
       );
@@ -38,6 +44,7 @@ const SearchPetScreen = () => {
       flexGrow: 1,
       alignItems: 'center',
       justifyContent: 'center',
+      backgroundColor: '#AFEEEE',
     },
     petCard: {
       marginBottom: 20,
@@ -56,6 +63,8 @@ const SearchPetScreen = () => {
     petAge: {
       fontSize: 16,
     },
-  });
+   
+});
+
   
   export default SearchPetScreen;
