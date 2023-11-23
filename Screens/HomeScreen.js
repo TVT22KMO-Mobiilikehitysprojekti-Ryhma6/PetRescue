@@ -17,7 +17,7 @@ export default function HomeScreen({navigation}) {
                 style={styles.navButton}
                 name='arrowright'
                 size={24}
-                onPress={() => navigation.navigate('Second', {message: message})}
+                onPress={() => navigation.navigate('Search', {message: message})}
                 />
             )
         })
