@@ -14,7 +14,9 @@ const QuestionsScreen = ({ navigation }) => {
         <View style={styles.container}>
           <Text style={styles.header}>Tietoa PetRescue sovelluksesta:</Text>
           <Text style={styles.infoText}>
-            PetRescue-sovelluksen kautta voit selata adoptoitavia koiria ja löytää juuri sen oikean ystävän, jonka koti kaipaa. Sovelluksemme on suunniteltu yksinkertaiseksi ja käyttäjäystävälliseksi: selaa, valitse ja luo ystävyyssuhde muutamalla napautuksella. Turvallisuus on meille etusijalla. Kaikki adoptiot käyvät läpi tarkan seulonnan, ja yhteystiedot pysyvät turvassa.
+            PetRescue sovelluksen kautta voit selata adoptoitavia koiria ja löytää juuri sen oikean ystävän, jonka koti kaipaa.
+          </Text>
+          <Text style={styles.infoText}>Sovelluksemme on suunniteltu yksinkertaiseksi ja käyttäjäystävälliseksi: selaa, valitse ja luo ystävyyssuhde muutamalla napautuksella. Turvallisuus on meille etusijalla. Kaikki adoptiot käyvät läpi tarkan seulonnan, ja yhteystiedot pysyvät turvassa.
           </Text>
           <Text style={styles.header}>Usein kysytyt kysymykset:</Text>
           <Text style={styles.subHeader}>Miksi adoptoida?</Text>
@@ -47,6 +49,7 @@ const QuestionsScreen = ({ navigation }) => {
           color: '#5da7ae',
           fontWeight: 'bold',
           marginBottom: 10,
+          marginTop: 10,
           textAlign: 'left',
         },
         subHeader: {

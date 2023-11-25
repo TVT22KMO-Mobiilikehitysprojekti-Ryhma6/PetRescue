@@ -21,6 +21,7 @@ export default function App() {
           options= {{
             title: '',
             headerTitle: '',
+            headerShown: false,
           }}
         />
            <Stack.Screen
