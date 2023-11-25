@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: '#5da7ae',
     textAlign: 'center',
+    fontStyle: 'italic',
   },
   subHeader: {
     fontSize: 18,

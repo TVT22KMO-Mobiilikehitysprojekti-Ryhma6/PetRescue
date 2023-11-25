@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'reac
 import Logo from '../picture/Logo.jpg';
 
 export default function HomeScreen({ navigation }) {
-  const [message, setMessage] = useState('PetRescue');
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -16,7 +15,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
           <Image source={Logo} style={styles.logo} />
-      <Text style={styles.header}>Tervetuloa {message} sovellukseen!</Text>
+      <Text style={styles.header}>Tervetuloa!</Text>
       <Text style={styles.infoText}>
         Etsitkö uskollista ystävää? Ystävää jonka kanssa jakaa elämän ilot ja surut? Haluaisitko
         mahdollisesti antaa Lemmikille uuden turvallisen kodin?
@@ -29,7 +28,7 @@ export default function HomeScreen({ navigation }) {
       </Text>
       <TouchableOpacity
         style={styles.startButton}
-        onPress={() => navigation.navigate('Search', { message: message })}
+        onPress={() => navigation.navigate('Search')}
       >
         <Text style={{ color: '#543d46' }}>Aloita</Text>
       </TouchableOpacity>
@@ -39,9 +38,11 @@ export default function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 5,
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#5da7ae',
+    paddingTop: 80,
   },
   logo: {
     width: 210,
@@ -55,17 +56,18 @@ const styles = StyleSheet.create({
     width: 500,
     fontWeight: '400',
     fontStyle: 'italic',
-    fontSize: 22,
+    fontSize: 40,
     textAlign: 'center',
     color: 'white'
   },
   infoText: {
     padding: 8,
     fontSize: 15,
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 15,
+    marginRight: 15,
     textAlign: 'center',
     color: 'white'
+
   },
   startButton: {
     backgroundColor: '#ffebbc',
