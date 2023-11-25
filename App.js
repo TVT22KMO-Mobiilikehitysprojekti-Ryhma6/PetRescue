@@ -4,6 +4,7 @@ import React from 'react';
 import HomeScreen from './Screens/HomeScreen';
 import SearchPetScreen from './Screens/SearchPetScreen';
 import PetInfoScreen from './Screens/PetInfoScreen';
+import QuestionsScreen from './Screens/QuestionsScreen'
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
@@ -18,8 +19,8 @@ export default function App() {
           name="Home"
           component={HomeScreen}
           options= {{
-            title: 'Home',
-            headerTitle: 'Home',
+            title: '',
+            headerTitle: '',
           }}
         />
            <Stack.Screen
@@ -36,6 +37,14 @@ export default function App() {
           options= {{
             title: 'Info',
             headerTitle:'Info',
+          }}
+          />
+          <Stack.Screen
+          name="Questions"
+          component={QuestionsScreen}
+          options= {{
+            title: '',
+            headerTitle: '',
           }}
           />
       </Stack.Navigator>
