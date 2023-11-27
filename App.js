@@ -30,6 +30,9 @@ export default function App() {
           options= {{
             title: '',
             headerTitle: 'Adoptoitavat koirat',
+            headerStyle: {
+              backgroundColor: '#AFEEEE',
+            },
           }}
           />
           <Stack.Screen
