@@ -42,7 +42,7 @@ const SearchPetScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#AFEEEE',
+    backgroundColor: '#E0FFFF',
   },
   petContainer: {
     flexGrow: 1,

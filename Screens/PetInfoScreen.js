@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, Image, StyleSheet,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { petDATA } from '../DATA';
 
@@ -27,35 +27,39 @@ const PetInfoScreen = ({ route }) => {
   }
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={petInfo.dogImage}
-        style={styles.petImage}
-      />
-      <Text style={styles.petName}>Nimi: {petInfo.dogName}</Text>
-      <Text style={styles.petAge}>Ikä: {petInfo.dogAge}</Text>
-      <Text style={styles.dogInfo}>{petInfo.dogInfo}</Text>
-      <Text style={styles.healthHeader}>Terveystiedot:</Text>
-      <Text style={styles.dogHealthInfo}>{petInfo.dogHealthInfo} </Text>
-    </View>
+    <ScrollView style={styles.container}>
+      <View>
+        <Image source={petInfo.dogImage} style={styles.petImage} />
+        <Text style={styles.petName}>Nimi: {petInfo.dogName}</Text>
+        <Text style={styles.petAge}>Ikä: {petInfo.dogAge}</Text>
+        <Text style={styles.dogInfo}>{petInfo.dogInfo}</Text>
+        <Text style={styles.healthHeader}>Terveystiedot:</Text>
+        <Text style={styles.dogHealthInfo}>{petInfo.dogHealthInfo} </Text>
+        <TouchableOpacity 
+          style={styles.ContactButton} 
+          onPress={() => navigation.navigate('Contact')}>
+        <Text style={styles.contactText}>  Ota yhteyttä  </Text>
+        </TouchableOpacity>
+      </View>
+  </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#AFEEEE',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  petImageContainer: {
-    alignItems: 'center',
+    backgroundColor: '#E0FFFF',
+    //alignItems: 'center',
+    //justifyContent: 'flex-start',
   },
   petImage: {
     width: 400,
     height: 300,
     borderRadius: 5,
     marginBottom: 10,
+    justifyContent: 'flex-start',
+    marginLeft: 10,
+    marginRight: 10,
   },
   petDetails: {
     marginLeft: 20, 
@@ -97,6 +101,20 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '600',
     marginTop: 15,
+  },
+  ContactButton: {
+    backgroundColor: '#ffebbc',
+    padding: 10,
+    paddingHorizontal: 30,
+    borderRadius: 5,
+    marginTop: 25,
+    marginLeft: 130,
+    marginRight: 130,
+  },
+  contactText: {
+    color: '#543d46',
+    textAlign: 'center',
+
   }
 });
 
