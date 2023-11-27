@@ -19,7 +19,7 @@ const SearchPetScreen = () => {
     >
       <Image source={item.dogImage} style={styles.petImage} />
       <Text style={styles.petName}>{item.dogName}</Text>
-      <Text style={styles.petAge}>{item.dogAge} years old</Text>
+      <Text style={styles.petAge}>{item.dogAge}-vuotias</Text>
     </TouchableOpacity>
   );
 
@@ -42,24 +42,28 @@ const SearchPetScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffebbc',
+    backgroundColor: '#AFEEEE',
   },
   petContainer: {
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   petCard: {
-    marginBottom: 20,
-    alignItems: 'center',
+   marginBottom: 20,
+   alignItems: 'center',
+   marginRight: 10,
+   marginLeft: 10,
+   marginTop: 5,
   },
   petImage: {
-    width: 150,
-    height: 150,
+    width: 155,
+    height: 155,
     borderRadius: 75,
     marginBottom: 10,
   },
   petName: {
-    fontSize: 18,
+    fontSize: 21,
     marginTop: 5,
   },
   petAge: {
