@@ -28,8 +28,8 @@ export default function App() {
           name="Search"
           component={SearchPetScreen}
           options= {{
-            title: 'Search',
-            headerTitle: 'Search',
+            title: '',
+            headerTitle: 'Adoptoitavat koirat',
           }}
           />
           <Stack.Screen
