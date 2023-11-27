@@ -9,12 +9,8 @@ const PetInfoScreen = ({ route }) => {
   const [petInfo, setPetInfo] = useState(null);
 
   const fetchPetInfo = (id) => {
-    // Etsi lemmikin tiedot petDATA-tietokannasta käyttäen id:tä
     const pet = petDATA.find(pet => pet.id === id);
 
-    //console.log('Pet info:', pet);
-
-    // Aseta lemmikin tiedot tilamuuttujaan
     setPetInfo(pet);
   };
 
@@ -38,6 +34,9 @@ const PetInfoScreen = ({ route }) => {
       />
       <Text style={styles.petName}>Nimi: {petInfo.dogName}</Text>
       <Text style={styles.petAge}>Ikä: {petInfo.dogAge}</Text>
+      <Text style={styles.dogInfo}>{petInfo.dogInfo}</Text>
+      <Text style={styles.healthHeader}>Terveystiedot:</Text>
+      <Text style={styles.dogHealthInfo}>{petInfo.dogHealthInfo} </Text>
     </View>
   );
 };
@@ -45,28 +44,60 @@ const PetInfoScreen = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffebbc',
+    backgroundColor: '#AFEEEE',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+  petImageContainer: {
     alignItems: 'center',
   },
   petImage: {
-    width: 430,
+    width: 400,
     height: 300,
     borderRadius: 5,
     marginBottom: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  petDetails: {
+    marginLeft: 20, 
+    alignSelf: 'flex-start', 
   },
   petName: {
+    marginLeft: 20,
+    alignSelf: 'flex-start',
     fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: '600',
     marginTop: 5,
   },
   petAge: {
-    fontSize: 16,
-    alignItems: 'center',
-    textAlign: 'center',
+    marginLeft: 20,
+    alignSelf: 'flex-start',
+    fontSize: 18,
+    fontWeight: '600',
   },
+  dogInfo: {
+    marginLeft: 20,
+    marginRight: 10,
+    alignSelf: 'flex-start',
+    fontSize: 15,
+    fontWeight: '400',
+    marginTop: 5,
+  },
+  dogHealthInfo: {
+    marginLeft: 20,
+    marginRight: 10,
+    alignSelf: 'flex-start',
+    fontSize: 15,
+    fontWeight: '400',
+    marginTop: 5,
+  },
+  healthHeader: {
+    marginLeft: 20,
+    marginRight: 10,
+    alignSelf: 'flex-start',
+    fontSize: 15,
+    fontWeight: '600',
+    marginTop: 15,
+  }
 });
 
 export default PetInfoScreen;
