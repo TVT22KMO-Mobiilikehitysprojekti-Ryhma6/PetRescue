@@ -4,6 +4,8 @@ export const petDATA = [
         dogName:'Aino',
         dogAge:'2',
         dogImage: require( './picture/new-dog-image-1.jpg'),
+        dogInfo:'Aino on 2-vuotias nuori koiran alku, joka etsii kotia. Kodin tulisi sijaita maalla. Aino ei sovellu kerrostaloon eikä myöskään lapsiperheeseen. Aino on oppinut suomessa kotihoidossa ollessaan sisäsiistiksi ja on hyvin leikkisä kaveri. Aino on tullut hyvin toimeen muiden koirien kanssa kotihoidossa ollessaan. Mielellään adoptoisimme Ainon kotiin, jossa myös toinen koira. Jos kiinnostuit Ainosta ja olet valmis atanamaan hänelle ansaitsemansa kodin täytä yhteystietolomake.',
+        dogHealthInfo:'Rokotettu rokotusohjelman mukaisesta, madotettu ja sirutettu. Aino on rekisteröity ruokaviraston rekisteriin. Aino on kastroitu.',
     },
     {
     id:'2',
