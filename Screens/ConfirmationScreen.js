@@ -1,23 +1,37 @@
-import React, { useLayoutEffect, useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import Logo from '../picture/Logo.jpg';
+import { Entypo } from '@expo/vector-icons';
 
-export default function ConfirmationScreen() {
+export default function ConfirmationScreen({ navigation }) {
   return (
     <View style={styles.container}>
-        <Image source={Logo} style={styles.logo} />
-    <Text style={styles.header}>Kiitos!</Text>
-    <Text style={styles.subHeader}>Vastaanotimme hakemuksesi</Text>
-    <Text style={styles.infoText}>
-    Rescueyhdistys ottaa sinuun yhteyttä viikon sisällä, jotta voimme varmistaa, että kaikki käytännön järjestelyt sujuvat saumattomasti ja uusi perheenjäsenesi saa parhaan mahdollisen alkunsa uudessa kodissaan.
-    </Text>
-    <TouchableOpacity
+      <Image source={Logo} style={styles.logo} />
+      <Text style={styles.header}>Kiitos!</Text>
+      <Text style={styles.subHeader}>Vastaanotimme hakemuksesi</Text>
+      <Text style={styles.infoText}>
+        Rescueyhdistys ottaa sinuun yhteyttä viikon sisällä, jotta voimme varmistaa, että kaikki käytännön järjestelyt sujuvat saumattomasti ja uusi perheenjäsenesi saa parhaan mahdollisen alkunsa uudessa kodissaan.
+      </Text>
+      <Text style={styles.infoText}>Kysymyksiä? Ota yhteyttä: info@petrescue.fi</Text>
+
+      <View style={styles.socialMediaContainer}>
+        <Text style={styles.socialMediaText}>Seuraa meitä somessa:</Text>
+        <TouchableOpacity style={styles.socialMedia}>
+          <Entypo name="instagram-with-circle" size={24} color='#5da7ae' />
+          <Text style={{ color: '#543d46' }}> Instagram</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.socialMedia}>
+          <Entypo name="facebook-with-circle" size={24} color='#5da7ae' />
+          <Text style={{ color: '#543d46' }}> Facebook</Text>
+        </TouchableOpacity>
+      </View>
+      
+      <TouchableOpacity
         style={styles.homeButton}
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Search')}
       >
         <Text style={{ color: 'white' }}>Etusivulle</Text>
       </TouchableOpacity>
-  </View>
+    </View>
   );
 }
 
@@ -28,6 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#ffebbc',
     padding: 20,
+    paddingTop: 100,
   },
   logo: {
     width: 210,
@@ -37,13 +52,16 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   header: {
-    fontSize: 40,
-    color: '#5da7ae',
-    textAlign: 'center',
+    marginTop: 10,
+    width: 500,
+    fontWeight: '400',
     fontStyle: 'italic',
+    fontSize: 40,
+    textAlign: 'center',
+    color: '#5da7ae'
   },
   subHeader: {
-    fontSize: 18,
+    fontSize: 16,
     marginBottom: 25,
     color: '#543d46',
     textAlign: 'center',
@@ -58,7 +76,21 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingHorizontal: 30,
     borderRadius: 5,
-    marginTop: 25,
+    marginTop: 20,
     marginBottom: 100,
+  },
+  socialMediaContainer: {
+    marginTop: 25,
+    alignItems: 'center',
+  },
+  socialMediaText: {
+    fontSize: 16,
+    marginBottom: 10,
+    color: '#543d46',
+  },
+  socialMedia: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
   },
 });

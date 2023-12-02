@@ -9,6 +9,7 @@ import ContactInformationScreen from './Screens/ContactInformationScreen';
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import ConfirmationScreen from './Screens/ConfirmationScreen';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -61,6 +62,15 @@ export default function App() {
           options= {{
             title: '',
             headerTitle: '',
+          }}
+          />
+          <Stack.Screen
+          name="Confirmation"
+          component={ConfirmationScreen}
+          options= {{
+            title: '',
+            headerTitle: '',
+            headerShown: false,
           }}
           />
       </Stack.Navigator>
