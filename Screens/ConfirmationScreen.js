@@ -16,11 +16,11 @@ export default function ConfirmationScreen({ navigation }) {
       <View style={styles.socialMediaContainer}>
         <Text style={styles.socialMediaText}>Seuraa meitä somessa:</Text>
         <TouchableOpacity style={styles.socialMedia}>
-          <Entypo name="instagram-with-circle" size={24} color='#5da7ae' />
+          <Entypo name="instagram-with-circle" size={24} color='#0981A3' />
           <Text style={{ color: '#543d46' }}> Instagram</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.socialMedia}>
-          <Entypo name="facebook-with-circle" size={24} color='#5da7ae' />
+          <Entypo name="facebook-with-circle" size={24} color='#0981A3' />
           <Text style={{ color: '#543d46' }}> Facebook</Text>
         </TouchableOpacity>
       </View>
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffebbc',
+    backgroundColor: '#F4E7D4',
     padding: 20,
     paddingTop: 100,
   },
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     fontSize: 40,
     textAlign: 'center',
-    color: '#5da7ae'
+    color: '#0981A3'
   },
   subHeader: {
     fontSize: 16,
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   homeButton: {
-    backgroundColor: '#5da7ae',
+    backgroundColor: '#0981A3',
     padding: 10,
     paddingHorizontal: 30,
     borderRadius: 5,

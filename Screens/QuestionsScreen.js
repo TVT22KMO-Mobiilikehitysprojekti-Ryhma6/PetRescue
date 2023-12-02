@@ -5,7 +5,7 @@ const QuestionsScreen = ({ navigation }) => {
     useLayoutEffect(() => {
       navigation.setOptions({
         headerStyle: {
-          backgroundColor: '#ffebbc',
+          backgroundColor: '#F4E7D4',
         },
       });
     }, [navigation]);
@@ -46,7 +46,7 @@ const QuestionsScreen = ({ navigation }) => {
         },
         header: {
           fontSize: 18,
-          color: '#5da7ae',
+          color: '#0981A3',
           fontWeight: 'bold',
           marginBottom: 10,
           marginTop: 10,

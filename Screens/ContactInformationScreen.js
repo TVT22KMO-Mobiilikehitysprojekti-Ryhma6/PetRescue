@@ -5,7 +5,7 @@ export default function ContactInformationScreen({ navigation })  {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: {
-        backgroundColor: '#ffebbc',
+        backgroundColor: '#F4E7D4',
       },
     });
   }, [navigation]);
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     padding: 5,
     fontSize: 20,
     textAlign: 'center',
-    color: '#5da7ae',
+    color: '#0981A3',
   },
   infoText: {
     fontSize: 15,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   sendButton: {
-    backgroundColor: '#ffebbc',
+    backgroundColor: '#F4E7D4',
     padding: 10,
     borderRadius: 5,
     marginTop: 15,
