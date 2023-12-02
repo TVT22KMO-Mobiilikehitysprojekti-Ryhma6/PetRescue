@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#5da7ae',
+    backgroundColor: '#0981A3',
     paddingTop: 80,
   },
   logo: {
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 
   },
   startButton: {
-    backgroundColor: '#ffebbc',
+    backgroundColor: '#F4E7D4',
     padding: 10,
     paddingHorizontal: 30,
     borderRadius: 5,
