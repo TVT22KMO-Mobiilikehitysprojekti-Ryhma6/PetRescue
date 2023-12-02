@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { StyleSheet, Text, TextInput, View, ScrollView, Alert, TouchableOpacity } from 'react-native';
-
+import { StyleSheet, Text, TextInput, ScrollView, Alert, TouchableOpacity } from 'react-native';
 
 export default function ContactInformationScreen({ navigation })  {
   useLayoutEffect(() => {
@@ -16,6 +15,10 @@ export default function ContactInformationScreen({ navigation })  {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [aboutMe, setAboutMe] = useState('');
+
+  const validateForm = () => {
+    return !!firstName && !!lastName && !!phoneNumber && !!email && !!aboutMe;
+  };
 
   const handleSubmit = () => {
     if (!firstName || !lastName || !phoneNumber || !email || !aboutMe) {
@@ -73,23 +76,31 @@ export default function ContactInformationScreen({ navigation })  {
         numberOfLines={4}
         placeholder="Miksi haluat adoptoida lemmikin? Minkälainen kokemus sinulla on eläinten kanssa? Muuta huomioitavaa?"
         textAlignVertical="top"
-        textAlign="left" 
+        textAlign="left"
+        placeholderTextColor= '#AAA6A4'
       />
       <TouchableOpacity
         style={styles.sendButton}
-        //onPress={() => navigation.navigate('PetSearch', { message: message })}
-      >
+        onPress={() => {
+          if (validateForm()) {
+            handleSubmit();
+            navigation.navigate('Confirmation');
+          } else {
+            Alert.alert('Virhe', 'Täytä kaikki pakolliset kentät', [{ text: 'OK', style: 'cancel' }]);
+          }
+        }}
+        >
         <Text style={{ color: '#543d46' }}>Lähetä</Text>
       </TouchableOpacity>
     </ScrollView>
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 22,
+    backgroundColor: 'white',
   },
   header: {
     padding: 5,
@@ -101,7 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: 'center',
     color: '#543d46',
-    marginBottom: 20,
+    marginBottom: 18,
   },
   label: {
     fontSize: 15,
