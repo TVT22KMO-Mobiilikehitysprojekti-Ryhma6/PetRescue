@@ -41,8 +41,8 @@ export default function App() {
           name="PetInfoScreen"
           component={PetInfoScreen}
           options= {{
-            title: 'Info',
-            headerTitle:'Info',
+            title: 'Lemmikin tiedot',
+            headerTitle:'Lemmikin tiedot',
             headerStyle: {
               backgroundColor: '#AFEEEE',
             },
