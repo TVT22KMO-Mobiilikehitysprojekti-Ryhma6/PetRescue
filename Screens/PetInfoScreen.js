@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, Image, StyleSheet,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Animated } from 'react-native';
-import { petDATA } from '../DATA';
+//import { petDATA } from '../DATA';
+
+import { haeKoiratFirestoresta } from '../firebase.js';
+
 
 const PetInfoScreen = ({ route }) => {
   const navigation = useNavigation();
@@ -10,11 +13,24 @@ const PetInfoScreen = ({ route }) => {
   const [petInfo, setPetInfo] = useState(null);
   const [scrollY, setScrollY] = useState(new Animated.Value(0));
 
-  const fetchPetInfo = (id) => {
-    const pet = petDATA.find(pet => pet.id === id);
-
-    setPetInfo(pet);
+  const fetchPetInfo = async (id) => {
+    try {
+      const koiratData = await haeKoiratFirestoresta();
+     const pet = koiratData.find((koira) => koira.id === id);
+setPetInfo({
+  imageUrl: pet.kuva,
+  dogName: pet.nimi,
+  dogAge: pet.ika,
+  dogBreed: pet.rotu,
+  dogInfo: pet.info,
+  dogHealthInfo: pet.healthinfo,
+});
+    } catch (error) {
+      console.error('Virhe koiran hakemisessa Firestoresta:', error);
+    }
   };
+
+ 
 
   useEffect(() => {
     fetchPetInfo(petId);
@@ -39,12 +55,16 @@ const PetInfoScreen = ({ route }) => {
   return (
       <View style={styles.container}>
         <Animated.View style={{ opacity: headerOpacity }}>
-          <Image source={petInfo.dogImage} style={styles.petImage} />
+        <Image source={{ uri: petInfo.imageUrl }} style={styles.petImage} />
         </Animated.View>
       <View style={styles.petDetails}>
-          <Text style={styles.petName}>Nimi: {petInfo.dogName}</Text>
-          <Text style={styles.petAge}>Ikä: {petInfo.dogAge}</Text>
-          <Text style={styles.petBreed}>Rotu: {petInfo.dogBreed}</Text>
+    
+      <View style={styles.petDetails}>
+  <Text style={styles.petName}>Nimi: {petInfo.dogName}</Text>
+  <Text style={styles.petAge}>Ikä: {petInfo.dogAge}</Text>
+  <Text style={styles.petBreed}>Rotu: {petInfo.dogBreed}</Text>
+</View>
+
         </View>
        <ScrollView
           style={styles.scrollView}
@@ -56,9 +76,12 @@ const PetInfoScreen = ({ route }) => {
 >
         <View>
           <Text style={styles.dogInfo}>{petInfo.dogInfo}</Text>
-          <Text style={styles.healthHeader}>Terveystiedot:</Text>
-          <Text style={styles.dogHealthInfo}>{petInfo.dogHealthInfo} </Text>
+       
         </View>
+        <View>
+    <Text style={styles.healthHeader}>Terveystiedot:</Text>
+    <Text style={styles.dogHealthInfo}>{petInfo.dogHealthInfo}</Text>
+  </View>
 
         <View>
           <Text style={styles.contactInfo}>Jos kiinostuit koirasta {petInfo.dogName} niin painamalla 'Ota yhteyttä' nappia pääset täyttämään lomakkeeseen tiedot itsestäsi. </Text>
@@ -82,7 +105,7 @@ const styles = StyleSheet.create({
   petImage: {
     width: 350,
     height: 350,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     borderRadius: 5,
     marginBottom: 10,
     marginTop: 5,
@@ -164,7 +187,7 @@ const styles = StyleSheet.create({
   contactText: {
     color: 'black',
     textAlign: 'center',
-  }
+  },
 });
 
-export default PetInfoScreen; 
+export default PetInfoScreen;
