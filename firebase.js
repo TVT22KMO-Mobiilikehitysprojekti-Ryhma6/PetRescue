@@ -18,20 +18,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const haeKoiratFirestoresta = async () => {
-  const koiratCollection = collection(db, 'koirat');
-
-  try {
+const haeKoiratFirestoresta = async () => {
+    const koiratCollection = collection(db, 'koirat');
     const koiratSnapshot = await getDocs(koiratCollection);
     const koiratData = koiratSnapshot.docs.map(doc => ({
       id: doc.id,
       nimi: doc.get('dogName'),
       ika: doc.get('dogAge'),
-      // Lisää muut kentät tarvittaessa
+      kuva: doc.get('imageUrl'), 
+     
     }));
     return koiratData;
-  } catch (error) {
-    console.error('Virhe koirien hakemisessa Firestoresta:', error);
-    throw error;
-  }
-};
+  };
+  
+  export { haeKoiratFirestoresta };
