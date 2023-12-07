@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, View, Text, Image, StyleSheet,TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Animated } from 'react-native';
-//import { petDATA } from '../DATA';
-
 import { haeKoiratFirestoresta } from '../firebase.js';
-
 
 const PetInfoScreen = ({ route }) => {
   const navigation = useNavigation();
@@ -29,8 +26,6 @@ setPetInfo({
       console.error('Virhe koiran hakemisessa Firestoresta:', error);
     }
   };
-
- 
 
   useEffect(() => {
     fetchPetInfo(petId);
@@ -105,7 +100,7 @@ const styles = StyleSheet.create({
   petImage: {
     width: 350,
     height: 350,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     borderRadius: 5,
     marginBottom: 10,
     marginTop: 5,
