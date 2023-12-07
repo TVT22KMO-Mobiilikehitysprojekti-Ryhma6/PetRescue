@@ -34,11 +34,10 @@ const SearchPetScreen = () => {
     >
       <Image source={{ uri: item.kuva }} style={styles.petImage} />
       <Text style={styles.petName}>{item.nimi}</Text>
-<Text style={styles.petAge}>{item.ika}-vuotias</Text>
-
+      <Text style={styles.petAge}>{item.ika}-vuotias</Text>
     </TouchableOpacity>
   );
-
+  
   return (
     <View style={styles.container}>
       <FlatList
