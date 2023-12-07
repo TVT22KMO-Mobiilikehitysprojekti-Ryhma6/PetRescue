@@ -33,11 +33,13 @@ const SearchPetScreen = () => {
       onPress={() => navigateToPetInfo(item.id)}
     >
       <Image source={{ uri: item.kuva }} style={styles.petImage} />
+      <View style={styles.petNameContainer}>
       <Text style={styles.petName}>{item.nimi}</Text>
-      <Text style={styles.petAge}>{item.ika}-vuotias</Text>
+    </View>
+    <Text style={styles.petAge}>{item.ika}-vuotias</Text>
     </TouchableOpacity>
   );
-  
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   petAge: {
-    fontSize: 16,
+    fontSize: 17,
   },
   questionButton: {
     position: 'absolute',
@@ -94,6 +96,12 @@ const styles = StyleSheet.create({
   questionButtonText: {
     color: 'white',
     fontSize: 25,
+  },
+  petNameContainer: {
+    backgroundColor: '#AFEEEE',
+    padding: 5, 
+    borderRadius: 10, 
+    marginTop: 5,
   },
 });
 
