@@ -11,6 +11,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ConfirmationScreen from './Screens/ConfirmationScreen';
 
+
 export default function App() {
   const Stack = createNativeStackNavigator();
 
