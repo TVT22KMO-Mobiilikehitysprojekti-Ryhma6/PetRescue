@@ -14,14 +14,15 @@ const PetInfoScreen = ({ route }) => {
     try {
       const koiratData = await haeKoiratFirestoresta();
      const pet = koiratData.find((koira) => koira.id === id);
-setPetInfo({
-  imageUrl: pet.kuva,
-  dogName: pet.nimi,
-  dogAge: pet.ika,
-  dogBreed: pet.rotu,
-  dogInfo: pet.info,
-  dogHealthInfo: pet.healthinfo,
+      setPetInfo({
+         imageUrl: pet.kuva,
+         dogName: pet.nimi,
+         dogAge: pet.ika,
+         dogBreed: pet.rotu,
+         dogInfo: pet.info,
+         dogHealthInfo: pet.healthinfo,
 });
+
     } catch (error) {
       console.error('Virhe koiran hakemisessa Firestoresta:', error);
     }
@@ -40,7 +41,6 @@ setPetInfo({
   }
 
   const headerHeight = 100000; // Korkeus, jonka jälkeen tiedot paljastuvat
-
   const headerOpacity = scrollY.interpolate({
     inputRange: [0, headerHeight],
     outputRange: [1, 0],
@@ -53,14 +53,13 @@ setPetInfo({
         <Image source={{ uri: petInfo.imageUrl }} style={styles.petImage} />
         </Animated.View>
       <View style={styles.petDetails}>
-    
       <View style={styles.petDetails}>
-  <Text style={styles.petName}>Nimi: {petInfo.dogName}</Text>
-  <Text style={styles.petAge}>Ikä: {petInfo.dogAge}</Text>
-  <Text style={styles.petBreed}>Rotu: {petInfo.dogBreed}</Text>
-</View>
+      <Text style={styles.petName}>Nimi: {petInfo.dogName}</Text>
+      <Text style={styles.petAge}>Ikä: {petInfo.dogAge}</Text>
+      <Text style={styles.petBreed}>Rotu: {petInfo.dogBreed}</Text>
+      </View>
 
-        </View>
+       </View> 
        <ScrollView
           style={styles.scrollView}
           onScroll={Animated.event(
@@ -68,20 +67,17 @@ setPetInfo({
           { useNativeDriver: false }
           )}
           scrollEventThrottle={16}
->
+        >
         <View>
           <Text style={styles.dogInfo}>{petInfo.dogInfo}</Text>
-       
         </View>
         <View>
     <Text style={styles.healthHeader}>Terveystiedot:</Text>
     <Text style={styles.dogHealthInfo}>{petInfo.dogHealthInfo}</Text>
-  </View>
-
+        </View>
         <View>
           <Text style={styles.contactInfo}>Jos kiinostuit koirasta {petInfo.dogName} niin painamalla 'Ota yhteyttä' nappia pääset täyttämään lomakkeeseen tiedot itsestäsi. </Text>
         </View>
-
         <TouchableOpacity 
           style={styles.ContactButton} 
           onPress={() => navigation.navigate('Contact')}>
