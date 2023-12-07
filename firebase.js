@@ -25,7 +25,10 @@ const haeKoiratFirestoresta = async () => {
       id: doc.id,
       nimi: doc.get('dogName'),
       ika: doc.get('dogAge'),
-      kuva: doc.get('imageUrl'), 
+      kuva: doc.get('imageUrl'),
+      info: doc.get('dogInfo'),
+      healthinfo: doc.get('dogHealthInfo'),
+      rotu: doc.get('dogBreed'),
      
     }));
     return koiratData;
