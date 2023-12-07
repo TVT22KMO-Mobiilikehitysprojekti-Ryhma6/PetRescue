@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-import { petDATA } from '../DATA';
+import { haeKoiratFirestoresta } from '../firebase';
 
 const SearchPetScreen = () => {
   const navigation = useNavigation();
+  const [koirat, setKoirat] = useState([]);
+
+  useEffect(() => {
+  
+    const haeKoirat = async () => {
+      try {
+        const koiratData = await haeKoiratFirestoresta();
+        console.log('Koirat Firestoresta:', koiratData);
+        setKoirat(koiratData);
+      } catch (error) {
+        console.error('Virhe koirien hakemisessa Firestoresta:', error);
+      }
+    };
+
+    haeKoirat();
+  }, []);
 
   const navigateToPetInfo = (petId) => {
     navigation.navigate('PetInfoScreen', { petId });
@@ -17,28 +32,28 @@ const SearchPetScreen = () => {
       style={styles.petCard}
       onPress={() => navigateToPetInfo(item.id)}
     >
-      <Image source={item.dogImage} style={styles.petImage} />
-      <Text style={styles.petName}>{item.dogName}</Text>
-      <Text style={styles.petAge}>{item.dogAge}-vuotias</Text>
+      <Image source={{ uri: item.kuva }} style={styles.petImage} />
+      <Text style={styles.petName}>{item.nimi}</Text>
+<Text style={styles.petAge}>{item.ika}-vuotias</Text>
+
     </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={petDATA}
+        data={koirat}
         renderItem={renderPetItem}
         keyExtractor={(item) => item.id.toString()}
         numColumns={2}
         contentContainerStyle={styles.petContainer}
       />
       <TouchableOpacity style={styles.questionButton} onPress={() => navigation.navigate('Questions')}>
-        <Text style={styles.questionButtonText}>  ?  </Text>
+        <Text style={styles.questionButtonText}> ? </Text>
       </TouchableOpacity>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
