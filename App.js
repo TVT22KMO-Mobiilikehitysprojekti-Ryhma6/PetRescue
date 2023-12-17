@@ -10,6 +10,8 @@ import ContactInformationScreen from './Screens/ContactInformationScreen';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ConfirmationScreen from './Screens/ConfirmationScreen';
+import DonateScreen from './Screens/Donatescreen';
+import DonateThanksScreen from './Screens/DonateThanksScreen';
 
 
 export default function App() {
@@ -68,6 +70,23 @@ export default function App() {
           <Stack.Screen
           name="Confirmation"
           component={ConfirmationScreen}
+          options= {{
+            title: '',
+            headerTitle: '',
+            headerShown: false,
+          }}
+          />
+          <Stack.Screen
+          name="Donate"
+          component={DonateScreen}
+          options= {{
+            title: '',
+            headerTitle: '',
+          }}
+          />
+          <Stack.Screen
+          name="DonateThanks"
+          component={DonateThanksScreen}
           options= {{
             title: '',
             headerTitle: '',

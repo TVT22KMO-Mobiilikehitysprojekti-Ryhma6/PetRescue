@@ -1,5 +1,5 @@
-import React, { useLayoutEffect, useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
+import React, { useLayoutEffect } from 'react';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import Logo from '../picture/Logo.jpg';
 
 export default function HomeScreen({ navigation }) {

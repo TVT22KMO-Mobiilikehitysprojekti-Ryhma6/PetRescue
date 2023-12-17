@@ -1,5 +1,5 @@
-import React, { useLayoutEffect, useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
+import React, { useLayoutEffect } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 
 const QuestionsScreen = ({ navigation }) => {
     useLayoutEffect(() => {

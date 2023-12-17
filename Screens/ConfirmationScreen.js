@@ -12,6 +12,10 @@ export default function ConfirmationScreen({ navigation }) {
         Rescueyhdistys ottaa sinuun yhteyttä viikon sisällä, jotta voimme varmistaa, että kaikki käytännön järjestelyt sujuvat saumattomasti ja uusi perheenjäsenesi saa parhaan mahdollisen alkunsa uudessa kodissaan.
       </Text>
       <Text style={styles.infoText}>Kysymyksiä? Ota yhteyttä: info@petrescue.fi</Text>
+      <Text style={styles.donateText}>
+        Haluatko tukea rescueyhdistysten toimintaa? Klikkaa{' '}
+        <Text style={styles.linkText} onPress={() => navigation.navigate('Donate')}>tästä</Text>
+      </Text>
 
       <View style={styles.socialMediaContainer}>
         <Text style={styles.socialMediaText}>Seuraa meitä somessa:</Text>
@@ -45,10 +49,10 @@ const styles = StyleSheet.create({
     paddingTop: 100,
   },
   logo: {
-    width: 210,
-    height: 210,
+    width: 200,
+    height: 200,
     resizeMode: 'contain',
-    marginBottom: 20,
+    marginBottom: 10,
     marginTop: 20,
   },
   header: {
@@ -71,6 +75,12 @@ const styles = StyleSheet.create({
     color: '#543d46',
     textAlign: 'center',
   },
+  donateText: {
+    fontSize: 15,
+    color: '#543d46',
+    textAlign: 'center',
+    marginTop: 12,
+  },
   homeButton: {
     backgroundColor: '#0981A3',
     padding: 10,
@@ -78,6 +88,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 20,
     marginBottom: 100,
+  },
+  linkText: {
+    color: '#0981A3',
+    marginTop: 1,
+    textDecorationLine: 'underline',
   },
   socialMediaContainer: {
     marginTop: 25,

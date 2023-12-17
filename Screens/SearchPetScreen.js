@@ -50,7 +50,7 @@ const SearchPetScreen = () => {
         contentContainerStyle={styles.petContainer}
       />
       <TouchableOpacity style={styles.questionButton} onPress={() => navigation.navigate('Questions')}>
-        <Text style={styles.questionButtonText}> ? </Text>
+        <Text style={styles.questionButtonText}>  ?  </Text>
       </TouchableOpacity>
     </View>
   );
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   questionButtonText: {
     color: 'white',
-    fontSize: 25,
+    fontSize: 24,
   },
   petNameContainer: {
     backgroundColor: '#AFEEEE',

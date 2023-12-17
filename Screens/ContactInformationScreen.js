@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { StyleSheet, Text, TextInput, ScrollView, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, ScrollView, Alert, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 
 export default function ContactInformationScreen({ navigation })  {
   useLayoutEffect(() => {
@@ -34,65 +34,71 @@ export default function ContactInformationScreen({ navigation })  {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-       <Text style={styles.header}>Yhteystiedot</Text>
-      <Text style={styles.infoText}>Anna meille hieman tietoja itsestäsi, jotta voimme ottaa sinuun yhteyttä.</Text>
-      <Text style={styles.label}>Etunimi</Text>
-      <TextInput
-        style={styles.input}
-        value={firstName}
-        onChangeText={text => setFirstName(text)}
-      />
+    <KeyboardAvoidingView
+      behavior="padding"
+      style={styles.container}
+    >
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <Text style={styles.header}>Yhteystiedot</Text>
+        <Text style={styles.infoText}>Anna meille hieman tietoja itsestäsi, jotta voimme ottaa sinuun yhteyttä.</Text>
+        <Text style={styles.label}>Etunimi</Text>
+        <TextInput
+          style={styles.input}
+          value={firstName}
+          onChangeText={text => setFirstName(text)}
+        />
 
-      <Text style={styles.label}>Sukunimi</Text>
-      <TextInput
-        style={styles.input}
-        value={lastName}
-        onChangeText={text => setLastName(text)}
-      />
+        <Text style={styles.label}>Sukunimi</Text>
+        <TextInput
+          style={styles.input}
+          value={lastName}
+          onChangeText={text => setLastName(text)}
+        />
 
-      <Text style={styles.label}>Puhelinnumero</Text>
-      <TextInput
-        style={styles.input}
-        value={phoneNumber}
-        onChangeText={text => setPhoneNumber(text)}
-        keyboardType="phone-pad"
-      />
+        <Text style={styles.label}>Puhelinnumero</Text>
+        <TextInput
+          style={styles.input}
+          value={phoneNumber}
+          onChangeText={text => setPhoneNumber(text)}
+          keyboardType="phone-pad"
+        />
 
-      <Text style={styles.label}>Sähköposti</Text>
-      <TextInput
-        style={styles.input}
-        value={email}
-        onChangeText={text => setEmail(text)}
-        keyboardType="email-address"
-      />
+        <Text style={styles.label}>Sähköposti</Text>
+        <TextInput
+          style={styles.input}
+          value={email}
+          onChangeText={text => setEmail(text)}
+          keyboardType="email-address"
+        />
 
-      <Text style={styles.label}>Kerro itsestäsi</Text>
-      <TextInput
-        style={styles.textarea}
-        value={aboutMe}
-        onChangeText={text => setAboutMe(text)}
-        multiline={true}
-        numberOfLines={4}
-        placeholder="Miksi haluat adoptoida lemmikin? Minkälainen kokemus sinulla on eläinten kanssa? Muuta huomioitavaa?"
-        textAlignVertical="top"
-        textAlign="left"
-        placeholderTextColor= '#AAA6A4'
-      />
-      <TouchableOpacity
-        style={styles.sendButton}
-        onPress={() => {
-          if (validateForm()) {
-            handleSubmit();
-            navigation.navigate('Confirmation');
-          } else {
-            Alert.alert('Virhe', 'Täytä kaikki pakolliset kentät', [{ text: 'OK', style: 'cancel' }]);
-          }
-        }}
+        <Text style={styles.label}>Kerro itsestäsi</Text>
+        <TextInput
+          style={styles.textarea}
+          value={aboutMe}
+          onChangeText={text => setAboutMe(text)}
+          multiline={true}
+          numberOfLines={4}
+          placeholder="Miksi haluat adoptoida lemmikin? Minkälainen kokemus sinulla on eläinten kanssa? Muuta huomioitavaa?"
+          textAlignVertical="top"
+          textAlign="left"
+          placeholderTextColor="#AAA6A4"
+        />
+
+        <TouchableOpacity
+          style={styles.sendButton}
+          onPress={() => {
+            if (validateForm()) {
+              handleSubmit();
+              navigation.navigate('Confirmation');
+            } else {
+              Alert.alert('Virhe', 'Täytä kaikki pakolliset kentät', [{ text: 'OK', style: 'cancel' }]);
+            }
+          }}
         >
-        <Text style={{ color: '#543d46' }}>Lähetä</Text>
-      </TouchableOpacity>
-    </ScrollView>
+          <Text style={{ color: '#543d46' }}>Lähetä</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
